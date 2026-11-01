@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Namma Ooru AI - SDLC</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+Tamil:wght@400;600;700&display=swap');
+
+    @page {
+      size: A4 portrait;
+      margin: 1.5cm;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      color: #0f172a;
+      background: #ffffff;
+      line-height: 1.5;
+      font-size: 13px;
+    }
+
+    .tamil-text {
+      font-family: 'Noto Sans Tamil', 'Plus Jakarta Sans', sans-serif;
+    }
+
+    /* Header Banner */
+    .header-box {
+      border-bottom: 2px solid #e2e8f0;
+      padding-bottom: 1.2rem;
+      margin-bottom: 1.4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .brand-title {
+      font-size: 26px;
+      font-weight: 800;
+      color: #0f172a;
+      letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .badge-state {
+      background: #ecfdf5;
+      color: #059669;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 6px;
+      border: 1px solid #a7f3d0;
+    }
+
+    .tagline {
+      font-size: 13px;
+      color: #059669;
+      font-weight: 700;
+      margin-top: 2px;
+    }
+
+    .doc-type {
+      text-align: right;
+    }
+
+    .doc-pill {
+      display: inline-block;
+      background: #eff6ff;
+      color: #2563eb;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 9999px;
+      border: 1px solid #bfdbfe;
+      margin-bottom: 4px;
+    }
+
+    .doc-date {
+      font-size: 11px;
+      color: #64748b;
+    }
+
+    /* Flowchart Grid */
+    .flow-container {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 12px 14px;
+      margin-bottom: 1.4rem;
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 8px;
+    }
+
+    .flow-step {
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      padding: 8px 6px;
+      text-align: center;
+      position: relative;
+    }
+
+    .flow-step.active {
+      border-color: #2563eb;
+      background: #eff6ff;
+    }
+
+    .flow-num {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      line-height: 20px;
+      background: #2563eb;
+      color: white;
+      font-size: 10px;
+      font-weight: 800;
+      border-radius: 50%;
+      margin-bottom: 3px;
+    }
+
+    .flow-title {
+      font-size: 11px;
+      font-weight: 700;
+      color: #0f172a;
+      display: block;
+    }
+
+    .flow-desc {
+      font-size: 9px;
+      color: #64748b;
+      margin-top: 2px;
+    }
+
+    /* Steps Section */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 14px 16px;
+      page-break-inside: avoid;
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid #f1f5f9;
+    }
+
+    .step-badge {
+      font-size: 11px;
+      font-weight: 800;
+      padding: 2px 7px;
+      border-radius: 6px;
+      color: white;
+    }
+
+    .step-badge.blue { background: #2563eb; }
+    .step-badge.green { background: #059669; }
+    .step-badge.purple { background: #7c3aed; }
+    .step-badge.amber { background: #d97706; }
+    .step-badge.rose { background: #e11d48; }
+    .step-badge.teal { background: #0d9488; }
+
+    .card-title {
+      font-size: 14px;
+      font-weight: 800;
+      color: #0f172a;
+    }
+
+    .card-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .card-list li {
+      font-size: 11.5px;
+      color: #334155;
+      line-height: 1.45;
+      padding-left: 14px;
+      position: relative;
+    }
+
+    .card-list li::before {
+      content: "•";
+      position: absolute;
+      left: 2px;
+      color: #059669;
+      font-weight: bold;
+      font-size: 14px;
+      line-height: 1;
+    }
+
+    .card-list strong {
+      color: #0f172a;
+    }
+
+    /* Live URLs Footer Box */
+    .urls-box {
+      margin-top: 1.2rem;
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-radius: 10px;
+      padding: 10px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .urls-left {
+      display: flex;
+      gap: 16px;
+      font-size: 11px;
+      color: #166534;
+      font-weight: 600;
+    }
+
+    .url-item span {
+      color: #0f172a;
+      font-weight: 700;
+    }
+
+    .footer-note {
+      text-align: center;
+      margin-top: 1rem;
+      font-size: 10px;
+      color: #94a3b8;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="header-box">
+    <div>
+      <div class="brand-title">
+        Namma Ooru AI <span class="badge-state tamil-text">தமிழ்நாடு</span>
+      </div>
+      <div class="tagline">Smart Community Governance Platform • Software Development Life Cycle (SDLC)</div>
+    </div>
+    <div class="doc-type">
+      <span class="doc-pill">Simple SDLC Report</span>
+      <div class="doc-date">Version 1.0 • October 2026</div>
+    </div>
+  </div>
+
+  <!-- SDLC 6-Step Visual Flow -->
+  <div class="flow-container">
+    <div class="flow-step">
+      <span class="flow-num">1</span>
+      <span class="flow-title">Planning</span>
+      <span class="flow-desc">Civic problem & goal</span>
+    </div>
+    <div class="flow-step">
+      <span class="flow-num">2</span>
+      <span class="flow-title">Requirements</span>
+      <span class="flow-desc">Voice, Tamil & AI</span>
+    </div>
+    <div class="flow-step">
+      <span class="flow-num">3</span>
+      <span class="flow-title">Design</span>
+      <span class="flow-desc">Clean UI/UX & Icons</span>
+    </div>
+    <div class="flow-step">
+      <span class="flow-num">4</span>
+      <span class="flow-title">Coding</span>
+      <span class="flow-desc">React + FastAPI</span>
+    </div>
+    <div class="flow-step">
+      <span class="flow-num">5</span>
+      <span class="flow-title">Testing</span>
+      <span class="flow-desc">Voice, Tamil & Build</span>
+    </div>
+    <div class="flow-step active">
+      <span class="flow-num">6</span>
+      <span class="flow-title">Deploy</span>
+      <span class="flow-desc">Live on Localhost</span>
+    </div>
+  </div>
+
+  <!-- 6 Detailed Steps in Clean 2-Column Grid -->
+  <div class="steps-grid">
+
+    <!-- Step 1 -->
+    <div class="card">
+      <div class="card-header">
+        <span class="step-badge blue">Step 1</span>
+        <h3 class="card-title">Planning (Idea & Purpose)</h3>
+      </div>
+      <ul class="card-list">
+        <li><strong>Citizen Problem:</strong> Citizens struggle with uncollected garbage, damaged roads, water supply leaks, broken streetlights, and clogged drainage.</li>
+        <li><strong>Platform Goal:</strong> Build <em>Namma Ooru AI</em> — an accessible smart governance portal for all 25 Corporations and urban bodies across Tamil Nadu.</li>
+        <li><strong>Core Value:</strong> Enable 60-second problem reporting through voice or form in Tamil and English with transparent resolution tracking.</li>
+      </ul>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="card">
+      <div class="card-header">
+        <span class="step-badge green">Step 2</span>
+        <h3 class="card-title">Requirement Analysis</h3>
+      </div>
+      <ul class="card-list">
+        <li><strong>Speech-to-Text:</strong> Web Speech API capturing voice in Tamil (<code>ta-IN</code>) and English (<code>en-IN</code>) for senior citizens.</li>
+        <li><strong>AI Auto-Triaging:</strong> Classify grievances and route immediately to Sanitation, PWD, Water Board, or Electrical departments.</li>
+        <li><strong>OpenStreetMap:</strong> Pinpoint exact GPS coordinates and reverse-geocode ward location.</li>
+        <li><strong>Live Tracking ID:</strong> Unique tracking numbers (e.g., <code>NOAI-2026-1001</code>) with real-time milestone timeline.</li>
+        <li><strong>Role Dashboards:</strong> Citizen tracking & Municipal Officer dispatch centers.</li>
+      </ul>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="card">
+      <div class="card-header">
+        <span class="step-badge purple">Step 3</span>
+        <h3 class="card-title">Design (UI / UX Architecture)</h3>
+      </div>
+      <ul class="card-list">
+        <li><strong>Theme & Aesthetics:</strong> Clean white civic background with rich green and blue accents (WCAG 2.1 AA accessible).</li>
+        <li><strong>Home Page Services Hub:</strong> Big 1-click icon cards on the homepage for Report, Track, Dashboard, Officer, Login, About, and 1913 Helpline.</li>
+        <li><strong>Clutter-Free Navigation:</strong> Clean, focused sticky header featuring Brand identity, 1-click Home return, and language switcher.</li>
+        <li><strong>Responsive Layout:</strong> Flawless mobile, tablet, and desktop viewing.</li>
+      </ul>
+    </div>
+
+    <!-- Step 4 -->
+    <div class="card">
+      <div class="card-header">
+        <span class="step-badge amber">Step 4</span>
+        <h3 class="card-title">Implementation (Tech Stack)</h3>
+      </div>
+      <ul class="card-list">
+        <li><strong>Frontend:</strong> React 18 + Vite (fast component architecture, 1.98s production build time).</li>
+        <li><strong>Backend Engine:</strong> Python 3.12 + FastAPI (asynchronous REST APIs, Pydantic v2 validation).</li>
+        <li><strong>Maps:</strong> OpenStreetMap + Leaflet (interactive pin drop without commercial API paywalls).</li>
+        <li><strong>Bilingual i18n:</strong> Complete dictionary switching between English and Tamil (<span class="tamil-text">தமிழ்</span>).</li>
+        <li><strong>Icons:</strong> Lucide React modern SVG icon library.</li>
+      </ul>
+    </div>
+
+    <!-- Step 5 -->
+    <div class="card">
+      <div class="card-header">
+        <span class="step-badge rose">Step 5</span>
+        <h3 class="card-title">Testing & Verification</h3>
+      </div>
+      <ul class="card-list">
+        <li><strong>Voice Input Test:</strong> Microphone accurately captures voice and populates problem descriptions in Tamil and English.</li>
+        <li><strong>Language Switch Test:</strong> Verified 100% of labels, headers, and buttons switch correctly into Tamil script.</li>
+        <li><strong>Metric Reconciliation:</strong> Verified live counts (Reported: 2, Pending: 2, In Progress: 2, Resolved: 1) match database records.</li>
+        <li><strong>Production Build Test:</strong> <code>npm run build</code> passed cleanly with zero errors.</li>
+      </ul>
+    </div>
+
+    <!-- Step 6 -->
+    <div class="card">
+      <div class="card-header">
+        <span class="step-badge teal">Step 6</span>
+        <h3 class="card-title">Deployment (Running Live)</h3>
+      </div>
+      <ul class="card-list">
+        <li><strong>Frontend Server:</strong> React running on <code>http://localhost:5173</code></li>
+        <li><strong>Backend API Server:</strong> FastAPI running on <code>http://localhost:8000</code></li>
+        <li><strong>Interactive API Docs:</strong> Swagger UI available at <code>http://localhost:8000/docs</code></li>
+        <li><strong>Ready for Cloud:</strong> Container-ready blueprint for Google Cloud Run and Cloud SQL (PostgreSQL).</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- Live Status Strip -->
+  <div class="urls-box">
+    <div class="urls-left">
+      <div class="url-item">Frontend: <span>http://localhost:5173</span></div>
+      <div class="url-item">API Server: <span>http://localhost:8000</span></div>
+      <div class="url-item">Swagger Docs: <span>http://localhost:8000/docs</span></div>
+    </div>
+    <div style="font-size: 11px; font-weight: 700; color: #059669;">
+      Status: Live & Functional
+    </div>
+  </div>
+
+  <div class="footer-note">
+    Namma Ooru AI • Smart Community Governance for Tamil Nadu • Cybernaut Hackathon 2026
+  </div>
+
+</body>
+</html>

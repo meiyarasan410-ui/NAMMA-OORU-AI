@@ -1,0 +1,23 @@
+{
+  "name": "namma-ooru-ai-hackathon",
+  "version": "1.0.0",
+  "description": "Namma Ooru AI - Smart Community Governance Platform (Cybernaut Hackathon 2026)",
+  "scripts": {
+    "dev": "python main.py",
+    "start": "python main.py",
+    "serve": "python main.py",
+    "backend": "cd backend && python main.py",
+    "frontend": "cd frontend && npm run dev",
+    "build": "cd frontend && npm run build"
+  },
+  "keywords": [
+    "hackathon",
+    "fastapi",
+    "react",
+    "vite",
+    "civic-tech",
+    "namma-ooru-ai"
+  ],
+  "author": "Cybernaut Hackathon Team",
+  "license": "MIT"
+}
